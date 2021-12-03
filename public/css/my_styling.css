@@ -1,0 +1,48 @@
+
+.dropdown-toggle {
+    color: rgb(0, 0, 0);
+}
+.dropdown-toggle:hover {
+    color: rgb(0, 0, 0);
+}
+.dropdown-toggle:active {
+    color: rgb(0, 0, 0) !important; 
+}
+.dropdown-toggle:focus {
+    color: rgb(0, 0, 0) !important; 
+}
+
+.card {
+    background-color: #c4c4c4;
+    border-radius: 0;
+}
+.card-header {
+    background-color: #c4c4c4;
+}
+.card-body {
+    background-color: #c4c4c4;
+}
+.card-footer {
+    background-color: #c4c4c4;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.list-group-item {
+    background-color: #c4c4c4;
+}
+.content {
+    animation: fadeOutAnimation ease 1000ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
