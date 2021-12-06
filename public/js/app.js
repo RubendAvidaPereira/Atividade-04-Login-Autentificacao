@@ -1,5 +1,5 @@
 async function getBP() {
-    const response = await fetch('/bp');
+    const response = await fetch('/api/bp');
     const data = await response.json()
 
     let nome_bomba = document.getElementById("BP")
@@ -9,8 +9,8 @@ async function getBP() {
 
         text +=
             `
-            <div class="d-grid gap-2 col-12 mt-2">
-                <a class="btn btn-outline-success" href="/bp/${bomba.bomba_combustivel}">${bomba.bomba_combustivel}</a>
+            <div class="d-grid gap-2 col-12 mt-3">
+                <a class="btn btn-info" href="/bp/${bomba.bomba_combustivel}">${bomba.bomba_combustivel}</a>
             </div>
             `
     }
@@ -18,7 +18,7 @@ async function getBP() {
 }
 
 async function getGALP() {
-    const response = await fetch('/galp');
+    const response = await fetch('/api/galp');
     const data = await response.json();
     console.log(data)
 
@@ -28,8 +28,8 @@ async function getGALP() {
     for (const bomba of data) {
         text +=
             `
-            <div class="d-grid gap-2 col-12 mt-2">
-                <a class="btn btn-outline-danger" href="/galp/${bomba.bomba_combustivel}">${bomba.bomba_combustivel}</a>
+            <div class="d-grid gap-2 col-12 mt-3">
+                <a class="btn btn-info" href="/galp/${bomba.bomba_combustivel}">${bomba.bomba_combustivel}</a>
             </div>
             `
     }

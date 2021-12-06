@@ -1,6 +1,8 @@
+Chart.defaults.color = "#fff"
+
 async function draw_simples_aditivada() {
 
-    const response = await fetch('/mais_informacoes/galp/simples_aditivada')
+    const response = await fetch('/api/mais_informacoes/galp/galp_gasolina')
     const data = await response.json()
 
     const simples = []
@@ -34,20 +36,20 @@ async function draw_simples_aditivada() {
                 label: 'Gasolina Simples',
                 data: simples,
                 backgroundColor: [
-                    'rgba(25, 135, 84, 0.2)',
+                    '#64cf007c',
                 ],
                 borderColor: [
-                    'rgba(25, 135, 84, 1)',
+                    '#64cf00',
                 ],
                 borderWidth: 1,
             }, {
                 label: 'Gasolina Aditivada',
                 data: aditivado,
                 backgroundColor: [
-                    'rgba(220, 53, 69, 0.2)',
+                    '#f1790983',
                 ],
                 borderColor: [
-                    'rgba(220, 53, 69, 1)',
+                    '#f17909',
                 ],
                 borderWidth: 1,
             }]
@@ -64,6 +66,10 @@ async function draw_simples_aditivada() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -80,6 +86,12 @@ async function draw_simples_aditivada() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {
@@ -101,7 +113,7 @@ async function draw_simples_aditivada() {
 
 async function draw_simples_aditivado() {
 
-    const response = await fetch('/mais_informacoes/galp/simples_aditivado')
+    const response = await fetch('/api/mais_informacoes/galp/galp_gasoleo')
     const data = await response.json()
 
     const simples = []
@@ -125,20 +137,20 @@ async function draw_simples_aditivado() {
                 label: 'Gasóleo Simples',
                 data: simples,
                 backgroundColor: [
-                    'rgba(0, 0, 0, 0.2)',
+                    'rgba(255, 255, 255, 0.75)',
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 255, 255, 1)',
                 ],
                 borderWidth: 1,
             }, {
                 label: 'Gasóleo Aditivado',
                 data: aditivado,
                 backgroundColor: [
-                    'rgba(13, 110, 253, 0.2)',
+                    '#00bee096',
                 ],
                 borderColor: [
-                    'rgba(13, 110, 253, 1)',
+                    '#00bfe0',
                 ],
                 borderWidth: 1,
             }]
@@ -155,6 +167,10 @@ async function draw_simples_aditivado() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -171,6 +187,12 @@ async function draw_simples_aditivado() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {
@@ -191,7 +213,7 @@ async function draw_simples_aditivado() {
 
 
 async function draw_gasoleo_aditivado() {
-    const response = await fetch('/mais_informacoes/galp/gasoleo_aditivado')
+    const response = await fetch('/api/mais_informacoes/galp/gasoleo_aditivado')
     const data = await response.json()
 
     const y_label = []
@@ -212,10 +234,10 @@ async function draw_gasoleo_aditivado() {
                 label: 'Gasóleo Aditivado',
                 data: y_label,
                 backgroundColor: [
-                    'rgba(13, 110, 253, 0.2)',
+                    '#00bee096',
                 ],
                 borderColor: [
-                    'rgba(13, 110, 253, 1)',
+                    '#00bfe0',
                 ],
                 borderWidth: 1
             }]
@@ -232,6 +254,10 @@ async function draw_gasoleo_aditivado() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -248,6 +274,12 @@ async function draw_gasoleo_aditivado() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {
@@ -269,7 +301,7 @@ async function draw_gasoleo_aditivado() {
 
 async function draw_gasoleo_simples() {
 
-    const response = await fetch('/mais_informacoes/galp/gasoleo_simples')
+    const response = await fetch('/api/mais_informacoes/galp/gasoleo_simples')
     const data = await response.json()
 
     const y_label = []
@@ -290,10 +322,10 @@ async function draw_gasoleo_simples() {
                 label: 'Gasóleo Simples',
                 data: y_label,
                 backgroundColor: [
-                    'rgba(0, 0, 0, 0.2)',
+                    'rgba(255, 255, 255, 0.75)',
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 255, 255, 1)',
                 ],
                 borderWidth: 1
             }]
@@ -310,6 +342,10 @@ async function draw_gasoleo_simples() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -326,6 +362,12 @@ async function draw_gasoleo_simples() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {
@@ -347,7 +389,7 @@ async function draw_gasoleo_simples() {
 
 async function draw_gasolina_simples() {
 
-    const response = await fetch('/mais_informacoes/galp/gasolina_simples')
+    const response = await fetch('/api/mais_informacoes/galp/gasolina_simples')
     const data = await response.json()
 
     const y_label = []
@@ -374,10 +416,10 @@ async function draw_gasolina_simples() {
                 label: 'Gasolina Simples',
                 data: y_label,
                 backgroundColor: [
-                    'rgba(25, 135, 84, 0.2)',
+                    '#64cf007c',
                 ],
                 borderColor: [
-                    'rgba(25, 135, 84, 1)',
+                    '#64cf00',
                 ],
                 borderWidth: 1
             }]
@@ -394,6 +436,10 @@ async function draw_gasolina_simples() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -410,6 +456,12 @@ async function draw_gasolina_simples() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {
@@ -431,7 +483,7 @@ async function draw_gasolina_simples() {
 
 async function draw_gasolina_aditivada() {
 
-    const response = await fetch('/mais_informacoes/galp/gasolina_aditivada')
+    const response = await fetch('/api/mais_informacoes/galp/gasolina_aditivada')
     const data = await response.json()
     console.log(data)
 
@@ -454,10 +506,10 @@ async function draw_gasolina_aditivada() {
                 label: 'Gasolina Aditivada',
                 data: y_label,
                 backgroundColor: [
-                    'rgba(220, 53, 69, 0.2)',
+                    '#f1790983',
                 ],
                 borderColor: [
-                    'rgba(220, 53, 69, 1)',
+                    '#f17909',
                 ],
                 borderWidth: 1
             }]
@@ -490,6 +542,12 @@ async function draw_gasolina_aditivada() {
             },
             plugins: {
                 legend: {
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                     display: true
                 },
                 tooltip: {

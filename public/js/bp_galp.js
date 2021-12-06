@@ -10,9 +10,11 @@ const go_simples_galp = []
 const go_aditivado_galp = []
 const x_galp = []
 
+Chart.defaults.color = "#fff"
+
 async function draw_galp_bp() {
 
-    const response = await fetch('/mais_informacoes/bp_galp')
+    const response = await fetch('/api/mais_informacoes/bp_galp')
     const data = await response.json()
 
     for (const y of data[0]) {
@@ -72,10 +74,10 @@ async function draw_galp_bp() {
                 label: 'Gasolina Simples',
                 data: ga_simples_bp,
                 backgroundColor: [
-                    'rgba(25, 135, 84, 0.2)',
+                    '#64cf007c',
                 ],
                 borderColor: [
-                    'rgba(25, 135, 84, 1)',
+                    '#64cf00',
                 ],
                 borderWidth: 1,
             }, {
@@ -83,10 +85,10 @@ async function draw_galp_bp() {
                 label: 'Gasolina Aditivada',
                 data: ga_aditivado_bp,
                 backgroundColor: [
-                    'rgba(220, 53, 69, 0.2)',
+                    '#f1790983',
                 ],
                 borderColor: [
-                    'rgba(220, 53, 69, 1)',
+                    '#f17909',
                 ],
                 borderWidth: 1,
             }, {
@@ -94,10 +96,10 @@ async function draw_galp_bp() {
                 label: 'Gasóleo Simples',
                 data: go_simples_bp,
                 backgroundColor: [
-                    'rgba(0, 0, 0, 0.2)',
+                    'rgba(255, 255, 255, 0.75)',
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 255, 255, 1)',
                 ],
                 borderWidth: 1,
             }, {
@@ -105,10 +107,10 @@ async function draw_galp_bp() {
                 label: 'Gasóleo Aditivado',
                 data: go_aditivado_bp,
                 backgroundColor: [
-                    'rgba(13, 110, 253, 0.2)',
+                    '#00bee096',
                 ],
                 borderColor: [
-                    'rgba(13, 110, 253, 1)',
+                    '#00bfe0',
                 ],
                 borderWidth: 1,
             }],
@@ -126,6 +128,10 @@ async function draw_galp_bp() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -142,7 +148,13 @@ async function draw_galp_bp() {
             },
             plugins: {
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    },
                 },
                 tooltip: {
                     intersect: true,
@@ -167,10 +179,10 @@ async function draw_galp_bp() {
                 label: 'Gasolina Simples',
                 data: ga_simples_galp,
                 backgroundColor: [
-                    'rgba(25, 135, 84, 0.2)',
+                    '#64cf007c',
                 ],
                 borderColor: [
-                    'rgba(25, 135, 84, 1)',
+                    '#64cf00',
                 ],
                 borderWidth: 1,
             }, {
@@ -178,10 +190,10 @@ async function draw_galp_bp() {
                 label: 'Gasolina Aditivada',
                 data: ga_aditivado_galp,
                 backgroundColor: [
-                    'rgba(220, 53, 69, 0.2)',
+                    '#f1790983',
                 ],
                 borderColor: [
-                    'rgba(220, 53, 69, 1)',
+                    '#f17909',
                 ],
                 borderWidth: 1,
             }, {
@@ -189,21 +201,21 @@ async function draw_galp_bp() {
                 label: 'Gasóleo Simples',
                 data: go_simples_galp,
                 backgroundColor: [
-                    'rgba(0, 0, 0, 0.2)',
+                    'rgba(255, 255, 255, 0.75)',
                 ],
                 borderColor: [
-                    'rgba(0, 0, 0, 1)',
+                    'rgba(255, 255, 255, 1)',
                 ],
                 borderWidth: 1,
             }, {
                 type: 'line',
-                label: 'Gasóleo Aditivada',
+                label: 'Gasóleo Aditivado',
                 data: go_aditivado_galp,
                 backgroundColor: [
-                    'rgba(13, 110, 253, 0.2)',
+                    '#00bee096',
                 ],
                 borderColor: [
-                    'rgba(13, 110, 253, 1)',
+                    '#00bfe0',
                 ],
                 borderWidth: 1,
             }],
@@ -221,6 +233,10 @@ async function draw_galp_bp() {
                         display: false,
                     },
                     ticks: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        },
                         stepSize: 0.005
                     }
                 },
@@ -237,7 +253,13 @@ async function draw_galp_bp() {
             },
             plugins: {
                 legend: {
-                    display: true
+                    display: true,
+                    labels: {
+                        font: {
+                            weight: 'bold',
+                            size: 14,
+                        }
+                    }
                 },
                 tooltip: {
                     intersect: true,
