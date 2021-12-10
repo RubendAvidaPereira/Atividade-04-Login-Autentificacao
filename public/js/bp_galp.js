@@ -276,14 +276,3 @@ async function draw_galp_bp() {
         },
     });
 }
-
-window.addEventListener('load', async () => {
-    await draw_galp_bp();
-
-    if (!document.cookie.includes('gasolina')) {
-        setTimeout(() => {
-            document.cookie = 'gasolina=true';
-            location.reload();
-        }, 1000);
-    }
-});

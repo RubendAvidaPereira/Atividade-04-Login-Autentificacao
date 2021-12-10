@@ -30,8 +30,11 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse justify-content-end" id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li><a class="nav-link mx-2" href="/bp_galp"><strong>BP vs Galp</strong></a></li>
+                <ul class="navbar-nav">    
+                    <li><a class="nav-link mx-2 toggle-warning" href="#" id="logout" data-bs-toggle="modal" data-bs-target="#logoutModal"><strong>Logout <i class="bi bi-door-open"></i></strong></a></li>     
+                    <li><a class="nav-link mx-2 toggle-warning" href="#" id="login" data-bs-toggle="modal" data-bs-target="#loginModal"><strong>Login <i class="bi bi-person-check"></i></strong></a></li>
+                    <li><a class="nav-link mx-2 toggle-warning" href="#" id="registar" data-bs-toggle="modal" data-bs-target="#registarModal"><strong>Registar <i class="bi bi-person-plus"></i></strong></a></li>
+                    <li><a class="nav-link mx-2" href="/bp_galp" style="color: #1d99ff !important;"><strong>BP vs Galp</strong></a></li>
                     <li><a class="nav-link mx-2" href="/comparador_bp"><strong>Comparador BP</strong></a></li>
                     <li><a class="nav-link mx-2" href="/comparador_galp"><strong>Comparador GALP</strong></a></li>
                     <li><a class="nav-link mx-2" href="/sobre"><strong>Sobre</strong></a></li>
@@ -41,7 +44,7 @@
     </nav>
 
     <!-- Sobre o WebSite-->
-    <div class="content">
+    <div class="content" id="content">
         <div class="container-fluid mt-1 mb-3 col-lg-12">
             <div class="row">
                 <div class="col-lg-6 mt-3">
@@ -105,7 +108,297 @@
             </div>
         </div>
     </div>
+    <div id="spinner-wrapper">
+        <div class="spinner"></div>
+    </div>
+    <div class="naoAutorizado" id="naoAutorizado">
+        <h1 class="display-4 text-info text-center">Não autorizado a ver este conteúdo!</h1>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" aria-labelledby="loginModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form method="POST">
+                    <div class="modal-body border-0">
+                        <div class="row border-0 d-flex justify-content-center mb-2 mt-3">
+                            <h2 class="text-info text-center"><strong>Login <i class="bi bi-person-check"></strong></i></h2>
+                        </div>
+                        <hr class="text-info mx-auto w-50 mb-4">
+                        <div class="row mx-2 d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="usernameLogin" placeholder="Username">
+                                    <label for="floatingUsername">Username</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row mx-2 d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="passwordLogin" placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <div class="alert alert-warning toggle-warning col-lg-7" id="loginWarning" style="height: 10%;">
+                                <strong>Utilizador não existe..</strong>
+                            </div>
+                            <div class="alert alert-warning toggle-warning col-lg-7" id="passwordLoginWarning" style="height: 10%;">
+                                <strong>Password errada. Tente novamente.</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 d-flex justify-content-center">
+                        <div class="d-grid col-7 mb-3 gap-2">
+                            <button type="button" id="submitLogin" class="btn btn-info mx-3">Login</button>
+                        </div>
+                        <div class="d-grid col-7 mb-2 gap-2">
+                            <button type="button" class="btn btn-outline-info mx-3" id="popUp" href="#" data-bs-toggle="modal" data-bs-target="#registarModal">Não tens conta? Regista-te aqui!</button> 
+                        </div>
+                        <div class="d-grid col-7 mb-2 gap-2 text-center">
+                            <a class="nav-link" href="#" data-bs-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registarModal" aria-labelledby="registarModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form method="POST" id="registerForm">
+                    <div class="modal-header border-0 d-flex justify-content-center mt-3">
+                        <h2 class="text-info"><strong>Registar <i class="bi bi-person-plus"></strong></i></h2>
+                    </div>
+                    <div class="modal-body d-flex justify-content-center align-items-center border-0">
+                        <div class="row w-100 d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <ul class="list-group list-group-flush" style="border-radius: 9px;">
+                                    <li class="list-group-item"><small>É aconselhado o uso de uma password <strong>forte</strong>;</small></li>
+                                    <li class="list-group-item"><small>Deve conter pelo menos <strong>8 caracteres</strong>;</small></li>
+                                    <li class="list-group-item"><small>Deve conter caracteres <strong>alfanuméricos</strong> e/ou <strong>especiais</strong>.</small></li>
+                                </ul>
+                            </div>
+                            <hr class="text-info mb-3 mt-3 mx-auto w-50">
+                            <div class="col-lg-8">
+                                <div class="form-floating">
+                                    <input type="text" id="usernameRegister" class="form-control" placeholder="Username">
+                                    <label for="floatingUsername">Username</label>
+                                </div>
+                                <br>
+                                <div class="form-floating">
+                                    <input type="password" id="passwordRegister" class="form-control" placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                </div>
+                                <br>
+                                <div class="alert alert-info toggle-warning" data-bs-dismiss="alert" id="alert">
+                                    <small><strong>Registo efetuado com sucesso!</strong></small>
+                                </div>
+                                <div class="alert alert-warning toggle-warning" data-bs-dismiss="alert" id="warning">
+                                    <small><strong>Preencha todos os campos</strong></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 mb-3 d-flex justify-content-center">
+                        <div class="d-grid col-6 gap-2">
+                            <button type="button" id="submitRegister" class="btn btn-info mx-3">Registar</button>
+                        </div>
+                        <div class="d-grid col-6 gap-2 text-center">
+                            <a class="nav-link" href="#" data-bs-dismiss="modal">Fechar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" aria-labelledby="logoutModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header border-0 d-flex justify-content-center">
+                    <h2 class="text-info">Já de saída?</h2>
+                </div>
+                <div class="modal-body d-flex justify-content-center">
+                    <div class="d-grid col-6 gap-2 mx-1">
+                        <button class="btn btn-outline-info" href="#" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                    <div class="d-grid col-6 gap-2 mx-1">
+                        <button class="btn btn-info" id="exit" href="#" data-bs-dismiss="modal">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/bp_galp.js"></script>
+    <script>
+        // Variaveis DOM
+        let loginButton = document.getElementById('login')
+        let registerButton = document.getElementById('registar')
+        let logoutButton = document.getElementById('logout')
+
+        window.addEventListener('load', async () => {
+            let spinner = document.getElementById("spinner-wrapper")
+            let content = document.getElementById("content")
+            let naoAutorizado = document.getElementById("naoAutorizado")
+
+            content.style.display = 'none'
+            spinner.style.display = 'block'
+                
+            if (!document.cookie.includes('comparador')) {
+                setTimeout(() => {
+                    document.cookie = 'comparador=true';
+                    location.reload();
+                }, 1500);
+            } else {
+                let user = sessionStorage.getItem("user")
+                let token = sessionStorage.getItem("token")
+                if (user != null && token != null){
+                    draw_galp_bp()
+                    .then(() => {
+                        spinner.remove()
+                        content.style.display = 'block'
+                        naoAutorizado.style.display = 'none'
+                        logoutButton.classList.add('is-visible')
+                    }) 
+                }
+                else { 
+                    content.style.display = 'none'
+                    naoAutorizado.style.display = 'block'
+                    registerButton.classList.add('is-visible')
+                    loginButton.classList.add('is-visible')
+                }
+                
+            }
+        });
+    </script>
+
+    <!-- Script Login -->
+    <script>
+        // Variavei DOM
+        let loginForm = document.getElementById("submitLogin")
+        let loginWarning = document.getElementById("loginWarning")
+        let passwordWarning = document.getElementById("passwordLoginWarning")
+
+        loginForm.addEventListener('click', () => {
+            let username = document.getElementById("usernameLogin").value
+            let password = document.getElementById("passwordLogin").value
+
+            if (password == '' || username == ''){
+                loginWarning.classList.add('is-visible')
+                setTimeout(() => {
+                loginWarning.classList.remove('is-visible')
+                }, 2500)
+            }
+            else {
+                let authentication = {
+                'username': username,
+                'password': password
+                }
+                let auth = JSON.stringify(authentication)
+                
+                fetch('/api/userLogin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', 
+                    },
+                    body: auth,
+
+                }).then( async (response) => {
+                    if (response.status == 401){
+                        loginWarning.classList.add('is-visible')
+                        setTimeout(() => {
+                        loginWarning.classList.remove('is-visible')
+                        }, 2500)
+                    }
+                    else if (response.status == 403) {
+                        passwordWarning.classList.add('is-visible')
+                        setTimeout(() => {
+                        passwordWarning.classList.remove('is-visible')
+                        }, 2500)
+                    }
+                    else if (response.status == 200) {
+                        const auth = await response.json()
+                        sessionStorage.setItem("user", auth.user)
+                        sessionStorage.setItem("token", auth.token)
+                        document.getElementById("usernameRegister").value = ""
+                        document.getElementById("passwordRegister").value= ""
+                        location.reload()
+                    }
+                }).catch((err) => { console.log(err) })
+            }            
+        })
+    </script>
+
+    <!-- Script Register -->
+    <script>
+        // Variaveis DOM
+        let registerForm = document.getElementById("submitRegister")
+        let alert = document.getElementById("alert")
+        let alert_warning = document.getElementById("warning")
+
+        // Evento de register
+        registerForm.addEventListener("click", () => {
+            let username = document.getElementById("usernameRegister").value
+            let password = document.getElementById("passwordRegister").value
+
+            if (username === '' || password === '') {
+                alert_warning.classList.add('is-visible')
+                setTimeout(() => {
+                   alert_warning.classList.remove('is-visible')
+                }, 2500)
+            }
+            else {
+                let authentication = {
+                'username': username,
+                'password': password
+                }
+                let auth = JSON.stringify(authentication)
+                
+                fetch('/api/userRegister', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', 
+                    },
+                    body: auth,
+                }).then((response) => {
+                    if (response.status == 201){
+                        alert.classList.add('is-visible')
+                        setTimeout(() => {
+                            alert.classList.remove('is-visible')
+                            document.getElementById("usernameRegister").value = ""
+                            document.getElementById("passwordRegister").value= ""
+                        }, 2500)
+                    }
+                }).catch((err) => { console.log(err) })
+            }            
+        })
+    </script>
+
+    <!-- Logout -->
+    <script>
+        // Variaveis DOM
+        let exit = document.getElementById("exit")
+        let lbutton = document.getElementById('login')
+        let rButton = document.getElementById('registar')
+        let loButton = document.getElementById('logout')
+        let graphs = document.getElementById('content')
+
+        exit.addEventListener("click", () => {
+            sessionStorage.removeItem("user")
+            sessionStorage.removeItem("token")
+            graphs.style.display = 'none'
+
+            location.reload()
+        })
+    </script>
 </body>
 </html>

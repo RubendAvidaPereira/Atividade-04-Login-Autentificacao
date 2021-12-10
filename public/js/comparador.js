@@ -575,14 +575,3 @@ async function drawCharts() {
     await draw_gasolina_simples()
     await draw_gasolina_aditivada()
 }
-
-window.addEventListener('load', async () => {
-    await drawCharts();
-
-    if (!document.cookie.includes('galp')) {
-        setTimeout(() => {
-            document.cookie = 'galp=true';
-            location.reload();
-        }, 1000);
-    }
-});
