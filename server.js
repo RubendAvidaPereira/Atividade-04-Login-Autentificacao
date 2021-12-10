@@ -8,7 +8,7 @@ const path = require('path')
 
 app.use(express.json()); // Parse de requests do tipo application/json
 
-app.use(express.urlencoded({extended: true})); // Parse de conteudo do tipo application/x-www-from-urlencoded
+app.use(express.urlencoded({ extended: true })); // Parse de conteudo do tipo application/x-www-from-urlencoded
 
 app.use(express.static('public')); // Media, HTML, CSS and JS
 
@@ -61,7 +61,6 @@ app.get('/bp_galp', (req, res) => {
 app.get('/sobre', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/templates/sobre.html'))
 })
-
 
 const PORT = 8080; // Porta 8080 - Onde o servidor vai escutar os pedidos e executar as respostas
 
