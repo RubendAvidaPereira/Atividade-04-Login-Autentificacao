@@ -1,6 +1,7 @@
 module.exports = app => {
-    
+
     const controller = require("../controllers/controller_main_data.js") // Controlador da DATA 
+    const login_controller = require("../controllers/login_controller.js") // Controlador do Processo de Login e Registar
 
     var router = require("express").Router() // Router do servidor
 
@@ -46,16 +47,20 @@ module.exports = app => {
     router.get('/mais_informacoes/bp/gasoleo_simples', controller.gasoleo_simples_bp)
 
     router.get('/mais_informacoes/bp/gasoleo_aditivado', controller.gasoleo_aditivado_bp)
- 
+
     router.get('/mais_informacoes/bp/gasolina_simples', controller.gasolina_simples_bp)
- 
+
     router.get('/mais_informacoes/bp/gasolina_aditivada', controller.gasolina_aditivada_bp)
- 
+
     router.get('/mais_informacoes/bp/bp_gasolina', controller.bp_gasolina)
- 
+
     router.get('/mais_informacoes/bp/bp_gasoleo', controller.bp_gasoleo)
 
     //-------------------- Pagina de Comparacao de Precos BP e GALP
     router.get('/mais_informacoes/bp_galp', controller.bp_vs_galp)
 
+    //-------------------- Login e Registo
+    router.post('/userRegister', login_controller.register)
+
+    router.post('/userLogin', login_controller.login)
 }
