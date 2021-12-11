@@ -1,10 +1,23 @@
 Chart.defaults.color = "#fff"
 
+const token = sessionStorage.getItem("token")
+const myInit = {
+    method: "GET",
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}
+const request_simples_aditivada = new Request('/api/mais_informacoes/bp/bp_gasolina', myInit)
+const request_simples_aditivado = new Request('/api/mais_informacoes/bp/bp_gasoleo', myInit)
+const request_gasoleo_simples = new Request('/api/mais_informacoes/bp/gasoleo_simples', myInit)
+const request_gasoleo_aditivado = new Request('/api/mais_informacoes/bp/gasoleo_aditivado', myInit)
+const request_gasolina_simples = new Request('/api/mais_informacoes/bp/gasolina_simples', myInit)
+const request_gasolina_aditivada = new Request('/api/mais_informacoes/bp/gasolina_aditivada', myInit)
+
 async function draw_simples_aditivada() {
 
-    const response = await fetch('/api/mais_informacoes/bp/bp_gasolina')
+    const response = await fetch(request_simples_aditivada)
     const data = await response.json()
-    console.log(data)
 
     const simples = []
     const aditivado = []
@@ -27,8 +40,6 @@ async function draw_simples_aditivada() {
             aditivado.push(gasolina_aditivada)
         }
     }
-    console.log(simples)
-    console.log(aditivado)
 
     const ctx = document.getElementById('chart6').getContext('2d');
     new Chart(ctx, {
@@ -117,7 +128,7 @@ async function draw_simples_aditivada() {
 
 async function draw_simples_aditivado() {
 
-    const response = await fetch('/api/mais_informacoes/bp/bp_gasoleo')
+    const response = await fetch(request_simples_aditivado)
     const data = await response.json()
     console.log(data)
 
@@ -132,8 +143,6 @@ async function draw_simples_aditivado() {
         simples.push(gasoleo_simples)
         aditivado.push(gasoleo_aditivado)
     }
-    console.log(simples)
-    console.log(aditivado)
 
     const ctx = document.getElementById('chart5').getContext('2d');
     new Chart(ctx, {
@@ -220,7 +229,7 @@ async function draw_simples_aditivado() {
 
 
 async function draw_gasoleo_aditivado() {
-    const response = await fetch('/api/mais_informacoes/bp/gasoleo_aditivado')
+    const response = await fetch(request_gasoleo_aditivado)
     const data = await response.json()
 
     const y_label = []
@@ -308,7 +317,7 @@ async function draw_gasoleo_aditivado() {
 
 async function draw_gasoleo_simples() {
 
-    const response = await fetch('/api/mais_informacoes/bp/gasoleo_simples')
+    const response = await fetch(request_gasoleo_simples)
     const data = await response.json()
 
     const y_label = []
@@ -396,7 +405,7 @@ async function draw_gasoleo_simples() {
 
 async function draw_gasolina_simples() {
 
-    const response = await fetch('/api/mais_informacoes/bp/gasolina_simples')
+    const response = await fetch(request_gasolina_simples)
     const data = await response.json()
 
     const y_label = []
@@ -490,7 +499,7 @@ async function draw_gasolina_simples() {
 
 async function draw_gasolina_aditivada() {
 
-    const response = await fetch('/api/mais_informacoes/bp/gasolina_aditivada')
+    const response = await fetch(request_gasolina_aditivada)
     const data = await response.json()
     console.log(data)
 

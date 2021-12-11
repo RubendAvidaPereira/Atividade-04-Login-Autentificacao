@@ -1,8 +1,22 @@
 Chart.defaults.color = "#fff"
 
+const token = sessionStorage.getItem("token")
+const myInit = {
+    method: "GET",
+    headers: {
+        Authorization: `Bearer ${token}`
+    }
+}
+const request_simples_aditivada = new Request('/api/mais_informacoes/galp/galp_gasolina', myInit)
+const request_simples_aditivado = new Request('/api/mais_informacoes/galp/galp_gasoleo', myInit)
+const request_gasoleo_simples = new Request('/api/mais_informacoes/galp/gasoleo_simples', myInit)
+const request_gasoleo_aditivado = new Request('/api/mais_informacoes/galp/gasoleo_aditivado', myInit)
+const request_gasolina_simples = new Request('/api/mais_informacoes/galp/gasolina_simples', myInit)
+const request_gasolina_aditivada = new Request('/api/mais_informacoes/galp/gasolina_aditivada', myInit)
+
 async function draw_simples_aditivada() {
 
-    const response = await fetch('/api/mais_informacoes/galp/galp_gasolina')
+    const response = await fetch(request_simples_aditivada)
     const data = await response.json()
 
     const simples = []
@@ -113,7 +127,7 @@ async function draw_simples_aditivada() {
 
 async function draw_simples_aditivado() {
 
-    const response = await fetch('/api/mais_informacoes/galp/galp_gasoleo')
+    const response = await fetch(request_simples_aditivado)
     const data = await response.json()
 
     const simples = []
@@ -213,7 +227,7 @@ async function draw_simples_aditivado() {
 
 
 async function draw_gasoleo_aditivado() {
-    const response = await fetch('/api/mais_informacoes/galp/gasoleo_aditivado')
+    const response = await fetch(request_gasoleo_aditivado)
     const data = await response.json()
 
     const y_label = []
@@ -301,7 +315,7 @@ async function draw_gasoleo_aditivado() {
 
 async function draw_gasoleo_simples() {
 
-    const response = await fetch('/api/mais_informacoes/galp/gasoleo_simples')
+    const response = await fetch(request_gasoleo_simples)
     const data = await response.json()
 
     const y_label = []
@@ -389,7 +403,7 @@ async function draw_gasoleo_simples() {
 
 async function draw_gasolina_simples() {
 
-    const response = await fetch('/api/mais_informacoes/galp/gasolina_simples')
+    const response = await fetch(request_gasolina_simples)
     const data = await response.json()
 
     const y_label = []
@@ -483,7 +497,7 @@ async function draw_gasolina_simples() {
 
 async function draw_gasolina_aditivada() {
 
-    const response = await fetch('/api/mais_informacoes/galp/gasolina_aditivada')
+    const response = await fetch(request_gasolina_aditivada)
     const data = await response.json()
     console.log(data)
 
