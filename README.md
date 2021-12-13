@@ -1,9 +1,7 @@
 # Atividade 04 de Desenvolvimento Web
 
 ### API com Register e Login (Autenticação)
-> Realizado por Ruben Pereira, nº30003325 \
-> Professor Laércio Cruvinel \
-> Engenharia Informática, Universidade Autónoma de Lisboa \
+> Engenharia Informática, Universidade Autónoma de Lisboa
 
 ### Índice
 
